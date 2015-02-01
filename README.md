@@ -32,3 +32,8 @@ Limitations
 -----------
 
 `dconf-export` needs ruby to run. It will also not work on relocatable schemas.
+
+Alternatives
+------------
+
+* dconf has its own mechanism to dump the configuration with the command `dconf dump /`.
