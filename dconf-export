@@ -24,19 +24,21 @@ class DconfExport
   end
 
 
-  
+
   def run
     export = ["#!/usr/bin/env sh"]
     keys(@schema).each do |key|
       export << "gsettings set #{@schema} #{key} \"#{value(@schema, key)}\""
     end
 
-    filename = "#{@schema}.sh";
-    File.open(filename, "w") do |file|
-      file.write(export.join("\n"))
+    if export.length > 1
+      filename = "#{@schema}.sh";
+      File.open(filename, "w") do |file|
+        file.write(export.join("\n"))
+      end
+      %x[chmod +x #{filename.shellescape}]
     end
-    %x[chmod +x #{filename.shellescape}]
   end
-    
+
 end
 DconfExport.new(*ARGV).run();
