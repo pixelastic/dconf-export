@@ -37,3 +37,4 @@ Alternatives
 ------------
 
 * dconf has its own mechanism to dump the configuration with the command `dconf dump /`.
+* A set of simple shell scripts for backing up and restoring parts of the dconf database: https://github.com/ypid/scripts/tree/master/dconf-backup
